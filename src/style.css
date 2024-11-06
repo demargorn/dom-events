@@ -1,0 +1,41 @@
+body {
+   background: #efe6dd;
+   text-align: center;
+}
+
+.goblin-killed,
+.goblin-passed {
+   font-size: 2rem;
+}
+
+.cells {
+   display: flex;
+   flex-wrap: wrap;
+   margin-top: 50px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 500px;
+   cursor: url('../public/target-scope.png'), crosshair;
+}
+
+.cell:nth-child(n + 5) {
+   margin-top: 5px;
+}
+
+.cell:nth-child(2n) {
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+.cell:nth-child(4n) {
+   margin-left: 5px;
+   margin-right: 0;
+}
+
+.cell {
+   width: 120px;
+   height: 120px;
+   border: 2px solid #231f20;
+   box-sizing: border-box;
+   background: #f3dfa2;
+}
