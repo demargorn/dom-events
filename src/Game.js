@@ -27,6 +27,7 @@ class Game {
    // начало игры
    start() {
       this.cellsArray = Array.from(document.querySelectorAll('.cell'));
+
       this.cellsArray.forEach((cell) => {
          cell.addEventListener('click', (e) => {
             if (e.target === this.image) {
