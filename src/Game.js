@@ -12,6 +12,8 @@ class Game {
       this.image = document.createElement('img');
       this.image.src = './public/goblin.png';
       this.boardSize = 16;
+
+      this._element.addEventListener('click', (e) => this.checkGoblin(e));
       this.init();
    }
 
@@ -27,25 +29,6 @@ class Game {
    // начало игры
    start() {
       this.cellsArray = Array.from(document.querySelectorAll('.cell'));
-
-      this.cellsArray.forEach((cell) => {
-         cell.addEventListener('click', (e) => {
-            if (e.target === this.image) {
-               this.image.style.display = 'none';
-               this.killedGoblins.textContent++;
-            } else {
-               this.passedGoblins.textContent++;
-            }
-
-            if (this.killedGoblins.textContent === '5') {
-               this.restart('You win!');
-            }
-
-            if (this.passedGoblins.textContent === '5') {
-               this.restart('You lose!');
-            }
-         });
-      });
 
       setInterval(() => {
          this.image.style.display = 'block';
@@ -63,6 +46,23 @@ class Game {
          }
          this.cellsArray[this.randomIndex].appendChild(this.image);
       }, 800);
+   }
+
+   checkGoblin(e) {
+      if (e.target === this.image) {
+         this.image.style.display = 'none';
+         this.killedGoblins.textContent++;
+      } else {
+         this.passedGoblins.textContent++;
+      }
+
+      if (this.killedGoblins.textContent === '5') {
+         this.restart('You win!');
+      }
+
+      if (this.passedGoblins.textContent === '5') {
+         this.restart('You lose!');
+      }
    }
 
    // перезапуск игры
