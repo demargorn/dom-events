@@ -8,7 +8,7 @@ class Game {
 
       this._element = element;
       this.killedGoblins = document.querySelector('.killed');
-      this.passedGoblins = document.querySelector('.passed');
+      this.passedGoblins = document.querySelector('.missed');
       this.image = document.createElement('img');
       this.image.src = './public/goblin.png';
       this.boardSize = 16;
@@ -29,7 +29,6 @@ class Game {
    // начало игры
    start() {
       this.cellsArray = Array.from(document.querySelectorAll('.cell'));
-
       setInterval(() => {
          this.image.style.display = 'block';
          this.randomIndex = null;
@@ -48,6 +47,7 @@ class Game {
       }, 800);
    }
 
+   // механизм поимки гоблина
    checkGoblin(e) {
       if (e.target === this.image) {
          this.image.style.display = 'none';
